@@ -1,0 +1,26 @@
+{
+  "name": "studiodevnodejs",
+  "version": "0.0.1",
+  "description": "Hacer el ejemplo de la pagina fictia studiodev con NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mateomunozb/studioDevNodeJs.git"
+  },
+  "keywords": [
+    "studiodev",
+    "forms",
+    "ejs",
+    "express",
+    "practica"
+  ],
+  "author": "Mateo Muñoz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mateomunozb/studioDevNodeJs/issues"
+  },
+  "homepage": "https://github.com/mateomunozb/studioDevNodeJs#readme"
+}
