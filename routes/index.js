@@ -5,11 +5,9 @@ const { Contact } = require('../database/index')
 const router = express.Router()
 
 router.get('/', (req, res) => {
-  //   console.log('req.query', req)
   if (req.query) {
-    const formCookie = req.cookies['contact']
     const query = req.query
-    res.render('index', { query, formCookie })
+    res.render('index', { query })
   } else {
     res.render('index')
   }
@@ -18,16 +16,13 @@ router.get('/', (req, res) => {
 router.post('/', async (req, res) => {
   const { email, message } = req.body
 
-  const formContent = { email: email, msg: message }
-
   try {
     const contact = req.body
-    const result = await Contact.insertOneContact(contact)
+    await Contact.insertOneContact(contact)
   } catch (error) {
     console.error(error)
   }
 
-  res.cookie('contact', formContent, { maxAge: 900000, httpOnly: true })
   res.redirect(
     302,
     url.format({
@@ -35,7 +30,7 @@ router.post('/', async (req, res) => {
       query: {
         email: !email ? 0 : 1,
         msg: !message ? 0 : 1,
-        cont: '#contacto'
+        ruta: '#contacto'
       }
     })
   )
