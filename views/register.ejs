@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </head>
+
+  <div class="valign-wrapper row login-box">
+    <div class="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4">
+      <form action="/form" method="POST">
+        <div class="card-content">
+          <%#if(query.validName === "1" && query.validSurname === "1" &&
+          query.validPass === "1"){ %>
+          <!-- <span class="new badge" style="display:block;">Form Sent</span> -->
+          <%#}%>
+          <span class="card-title">Create your account</span>
+          <div class="input-field col s12">
+            <%#if (query.validSurname === "0") { %>
+            <!-- <span class="new badge red">Campo requerido</span> -->
+            <%# } %>
+            <i class="material-icons prefix">person</i>
+            <input id="name" type="text" class="validate" name="name" />
+            <label for="icon_prefix">Name</label>
+          </div>
+          <div class="input-field col s12">
+            <%#if (query.validPass === "0") { %>
+            <!-- <span class="new badge red">Campo requerido</span> -->
+            <%#} %>
+            <i class="material-icons prefix">email</i>
+            <input id="email" type="email" class="validate" name="email" />
+            <label for="no_encryption">example@email.com</label>
+          </div>
+          <div class="input-field col s12">
+            <%#if (query.validSurname === "0") { %>
+            <!-- <span class="new badge red">Campo requerido</span> -->
+            <%# } %>
+            <i class="material-icons prefix">account_circle</i>
+            <input
+              id="username"
+              type="email"
+              class="validate"
+              name="username"
+            />
+            <label for="icon_prefix">Username</label>
+          </div>
+          <div class="input-field col s12">
+            <%#if (query.validSurname === "0") { %>
+            <!-- <span class="new badge red">Campo requerido</span> -->
+            <%# } %>
+            <i class="material-icons prefix">lock</i>
+            <input id="password" type="text" class="validate" name="password" />
+            <label for="icon_prefix">Password</label>
+          </div>
+          <div class="input-field col s12">
+            <%#if (query.validSurname === "0") { %>
+            <!-- <span class="new badge red">Campo requerido</span> -->
+            <%# } %>
+            <i class="material-icons prefix">lock</i>
+            <input
+              id="passwordagain"
+              type="text"
+              class="validate"
+              name="passwordagain"
+            />
+            <label for="icon_prefix">Password Again</label>
+          </div>
+          <div class="card-action center-align">
+            <button class="btn waves-effect waves-light" type="submit">
+              Create
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</html>

@@ -10,10 +10,10 @@
           <span class="badge badge-secondary">Campo requerido</span>
           <%}%>
       </div>
-      <input type="text" placeholder="Tu email" name="email" value="<%= query.email === "1" ? formCookie.email: ""  %>"></input>
+      <input type="text" placeholder="Tu email" name="email"></input>
     </div>
     <div class="">
-      <textarea rows="10" placeholder="Tu mensaje" name="message"  value="<%= query.msg === "1" ? formCookie.msg: ""  %>"></textarea>
+      <textarea rows="10" placeholder="Tu mensaje" name="message"></textarea>
     </div>
     <div>
       <%if(query.msg=== "0"){ %>
