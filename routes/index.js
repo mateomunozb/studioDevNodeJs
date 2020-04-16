@@ -1,8 +1,8 @@
 const express = require('express')
 const url = require('url')
-
 const { Contact } = require('../database/index')
 const router = express.Router()
+const passport = require('passport')
 
 router.get('/', (req, res) => {
   if (req.query) {
@@ -30,10 +30,40 @@ router.post('/', async (req, res) => {
       query: {
         email: !email ? 0 : 1,
         msg: !message ? 0 : 1,
-        ruta: '#contacto'
-      }
+        ruta: '#contacto',
+      },
     })
   )
+})
+
+router.get('/login', (req, res) => {
+  res.render('login')
+})
+
+router.post('/login', (req, res) =>
+  passport.authenticate('local-login', {
+    successRedirect: '/profile',
+    failureRedirect: '/register',
+    passReqToCallback: false,
+  })
+)
+
+router.get('/register', (req, res) => {
+  res.render('register')
+})
+
+router.post(
+  '/register',
+
+  passport.authenticate('local-register', {
+    successRedirect: '/profile',
+    failureRedirect: '/register',
+    passReqToCallback: false,
+  })
+)
+
+router.get('/profile', (req, res) => {
+  res.render('profile')
 })
 
 module.exports = router
