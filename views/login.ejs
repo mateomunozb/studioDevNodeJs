@@ -1,65 +1,13 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <!-- Compiled and minified CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  </head>
-
-  <div class="valign-wrapper row login-box">
-    <div class="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4">
-      <form action="/form" method="POST">
-        <div class="card-content">
-          <%#if(query.validName === "1" && query.validSurname === "1" &&
-          query.validPass === "1"){ %>
-          <!-- <span class="new badge" style="display:block;">Form Sent</span> -->
-          <%#}%>
-          <span class="card-title">Login</span>
-          <div class="input-field col s12">
-            <%#if (query.validSurname === "0") { %>
-            <!-- <span class="new badge red">Campo requerido</span> -->
-            <%# } %>
-            <i class="material-icons prefix">account_circle</i>
-            <input
-              id="icon_prefix"
-              type="text"
-              class="validate"
-              name="apellido"
-            />
-            <label for="icon_prefix">Username</label>
-          </div>
-          <div class="input-field col s12">
-            <%#if (query.validPass === "0") { %>
-            <!-- <span class="new badge red">Campo requerido</span> -->
-            <%#} %>
-            <i class="material-icons prefix">no_encryption</i>
-            <input
-              id="no_encryption"
-              type="password"
-              class="validate"
-              name="password"
-            />
-            <label for="no_encryption">Password</label>
-          </div>
-          <div class="card-action center-align">
-            <button class="btn waves-effect waves-light" type="submit">
-              Login
-              <i class="material-icons right">send</i>
-            </button>
-          </div>
-          <div>
-            <a href="/register">Create your acount</a>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
+<html lang="en">
+  <%- include('partials/head') -%>
+  <body>
+    <%- include('partials/main') -%>
+    <form action="/login" method="POST">
+      <input type="text" name="username" placeholder="Usuario" />
+      <input type="password" name="password" placeholder="Contraseña" />
+      <button type="submit">Ingresar</button>
+    </form>
+    <%- include('partials/foot') -%>
+  </body>
 </html>

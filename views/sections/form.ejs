@@ -8,9 +8,9 @@
       <div>
         <%if(query.email=== "0"){ %>
           <span class="badge badge-secondary">Campo requerido</span>
-          <%}%>
+        <%}%>
       </div>
-      <input type="text" placeholder="Tu email" name="email"></input>
+      <input type="email" placeholder="Tu email" name="email"></input>
     </div>
     <div class="">
       <textarea rows="10" placeholder="Tu mensaje" name="message"></textarea>
@@ -18,8 +18,8 @@
     <div>
       <%if(query.msg=== "0"){ %>
         <span class="badge badge-secondary">Campo requerido</span>
-        <%}%>
-    </div>
+      <%}%>
+    </div>  
     <button type="submit">ENVIAR</button>
   </form>
 </section>
