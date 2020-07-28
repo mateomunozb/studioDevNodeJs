@@ -30,13 +30,19 @@ class User {
     }
   }
 
-  static async findUserAndComparePassword(user) {
-    const userExisting = await this.findOne({ username: user.username })
-    const compare = await bcrypt.compare(user.password, this.password)
+  static async findUserAndComparePassword(username, password) {
+    const userExisting = await this.findOne({ username: username })
 
-    if (!userExisting) {
-      return `El usuario no existe`
-    } else if (!compare) return 'La contraseña es incorrecta'
+    if (userExisting) {
+      const compare = await bcrypt.compare(password, userExisting.password)
+      if (compare === true) {
+        return userExisting
+      } else {
+        return 'El usuario o la contraseña son incorrectos'
+      }
+    } else {
+      return `El usuario o la contraseña son incorrectos`
+    }
   }
 }
 

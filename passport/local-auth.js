@@ -22,13 +22,6 @@ passport.use(
       passReqToCallback: true,
     },
     async (req, username, password, done) => {
-      // const newUser = new User()
-      // newUser.name = req.body.name
-      // newUser.email = req.body.email
-      // newUser.username = username
-      // await newUser.save()
-      // done(null, newUser)
-
       const newUser = {
         name: req.body.name,
         email: req.body.email,
@@ -53,28 +46,23 @@ passport.use(
   )
 )
 
-// passport.use(
-//   'local-login',
-//   new localStrategy(
-//     {
-//       usernameField: 'username',
-//       passwordField: 'password',
-//       passReqToCallback: true,
-//     },
-//     async (req, username, password, done) => {
-//       const user = {
-//         username: username,
-//         password: password,
-//       }
-//       try {
-//         const userNotFound = await findUserAndComparePassword(user)
-//         console.log('TLC: userNotFound', userNotFound)
-//         if (userNotFound) {
-//           return done(null, false, req.flash('message', userNotFound))
-//         } else return done(null, user)
-//       } catch (error) {
-//         console.error(error)
-//       }
-//     }
-//   )
-// )
+passport.use(
+  'local-login',
+  new localStrategy(
+    {
+      usernameField: 'username',
+      passwordField: 'password',
+      passReqToCallback: true,
+    },
+    async (req, username, password, done) => {
+      try {
+        const user = await User.findUserAndComparePassword(username, password)
+        if (typeof user === 'string') {
+          return done(null, false, req.flash('message', user))
+        } else return done(null, user)
+      } catch (error) {
+        console.error(error)
+      }
+    }
+  )
+)

@@ -40,10 +40,11 @@ router.get('/login', (req, res) => {
   res.render('login')
 })
 
-router.post('/login', (req, res) =>
+router.post(
+  '/login',
   passport.authenticate('local-login', {
     successRedirect: '/profile',
-    failureRedirect: '/register',
+    failureRedirect: '/login',
     passReqToCallback: false,
   })
 )
@@ -62,8 +63,22 @@ router.post(
   })
 )
 
-router.get('/profile', (req, res) => {
-  res.render('profile')
+router.get('/profile', isLoggedIn, (req, res) => {
+  res.render('profile', {
+    user: req.user,
+  })
 })
+
+router.get('/logout', (req, res) => {
+  req.logout()
+  res.redirect('/login')
+})
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next()
+  }
+  return res.redirect('/login')
+}
 
 module.exports = router
