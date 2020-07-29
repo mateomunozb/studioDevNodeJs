@@ -4,7 +4,8 @@
   "description": "Hacer el ejemplo de la pagina fictia studiodev con NodeJS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./index.js"
   },
   "repository": {
     "type": "git",
@@ -22,5 +23,21 @@
   "bugs": {
     "url": "https://github.com/mateomunozb/studioDevNodeJs/issues"
   },
-  "homepage": "https://github.com/mateomunozb/studioDevNodeJs#readme"
+  "homepage": "https://github.com/mateomunozb/studioDevNodeJs#readme",
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.9.7",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.2",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
+  }
 }

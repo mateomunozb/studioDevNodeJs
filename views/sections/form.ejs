@@ -1,0 +1,25 @@
+<section id="contacto">
+  <h2>CONTACTO</h2>
+  <form action="/#contacto" method="POST">
+    <%if(query.email === "1" && query.msg === "1"){ %>
+    <span class="badge badge-secondary">Enviado</span>
+    <%}%>
+    <div class="">
+      <div>
+        <%if(query.email=== "0"){ %>
+          <span class="badge badge-secondary">Campo requerido</span>
+        <%}%>
+      </div>
+      <input type="email" placeholder="Tu email" name="email"></input>
+    </div>
+    <div class="">
+      <textarea rows="10" placeholder="Tu mensaje" name="message"></textarea>
+    </div>
+    <div>
+      <%if(query.msg=== "0"){ %>
+        <span class="badge badge-secondary">Campo requerido</span>
+      <%}%>
+    </div>  
+    <button type="submit">ENVIAR</button>
+  </form>
+</section>
