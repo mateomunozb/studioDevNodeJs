@@ -19,8 +19,27 @@
           </p>
         </div>
       </div>
-      <div class="text-center">
-        <h2>Mensajes</h2>
+      <div>
+        <h2 class="text-center">Mensajes</h2>
+        <% for(let i = 0; i < contacts.length; i++) {%>
+        <div class="list-group">
+          <div class="row d-flex list-group-item list-group-item-action">
+            <div class="col">
+              <%= contacts[i].email %>
+            </div>
+            <div class="text col-6">
+              <%= contacts[i].message %>
+            </div>
+            <form action="/profile" method="POST">
+              <div class="input-field text-center col">
+                <input type="hidden" name="_method" value="DELETE" />
+                <input type="hidden" name="id" value="<%=contacts[i]._id %>" />
+                <button type="submit" class="btn btn-danger">Borrar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <% } %>
       </div>
     </div>
   </body>

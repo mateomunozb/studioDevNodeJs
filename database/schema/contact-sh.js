@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const contactSchema = new mongoose.Schema({
   email: String,
-  message: String
+  message: String,
 })
 
 class ContactMessage {
